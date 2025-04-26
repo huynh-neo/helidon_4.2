@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "java",
+        "name": "Launch helidon-examples-quickstart-mp",
+        "request": "launch",
+        "mainClass": "io.helidon.examples.quickstart.mp.Main"
+      }
+    ]
+  }
+  
