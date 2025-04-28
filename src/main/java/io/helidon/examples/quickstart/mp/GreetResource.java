@@ -32,6 +32,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A simple JAX-RS resource to greet you. Examples:
@@ -50,6 +52,8 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 @Path("/greet")
 @RequestScoped
 public class GreetResource {
+    private static final Logger LOGGER = LoggerFactory.getLogger(GreetResource.class);
+
 
     /**
      * The greeting message provider.
@@ -120,8 +124,8 @@ public class GreetResource {
     }
 
     private GreetingMessage createResponse(String who) {
-        LOGGER.info("Processing started");
         String msg = String.format("%s %s!", greetingProvider.getMessage(), who);
+        LOGGER.info("LOG4J createResponse: " + msg);
 
         return new GreetingMessage(msg);
     }
