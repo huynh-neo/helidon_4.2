@@ -6,6 +6,7 @@ import io.helidon.examples.quickstart.mp.model.ClickAnalytics;
 import io.helidon.examples.quickstart.mp.repository.ClickAnalyticsRepository;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -24,7 +25,7 @@ public class AnalyticResource {
     private ClickAnalyticsRepository clickAnalyticsRepository;
 
     @POST
-    public Response insertClickAnalytics(ClickAnalytics analytics) {
+    public Response insertClickAnalytics(@Valid ClickAnalytics analytics) {
         try {
             clickAnalyticsRepository.insert(analytics);
             return Response.status(Response.Status.CREATED).build();
