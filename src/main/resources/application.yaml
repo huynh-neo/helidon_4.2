@@ -1,0 +1,14 @@
+javax:
+  sql:
+    DataSource:
+      default:
+        dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
+        dataSource:
+          url: jdbc:postgresql://localhost:5432/dynamiclinkdb
+          user: appuser
+          password: secret
+        maximumPoolSize: 10
+        minimumIdle: 2
+
+mongo:
+  uri: mongodb://mongoadmin:secret@localhost:27017/analyticsdb?authSource=admin
