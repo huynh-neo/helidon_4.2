@@ -11,4 +11,5 @@ javax:
         minimumIdle: 2
 
 mongo:
-  uri: mongodb://mongoadmin:secret@localhost:27017/analyticsdb?authSource=admin
+  connection-string: mongodb://mongoadmin:secret@localhost:27017/analyticsdb?authSource=admin
+  database: analyticsdb

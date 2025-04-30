@@ -1,18 +1,16 @@
 package io.helidon.examples.quickstart.mp.model;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import java.time.Instant;
-
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClickAnalytics {
-    private long linkId;
-    private Instant clickedAt;
+    private String linkId;
+    private Date timestamp;
     private String userAgent;
-}
+    private String ipAddress;}

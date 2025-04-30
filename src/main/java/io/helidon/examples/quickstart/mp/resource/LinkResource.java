@@ -1,15 +1,16 @@
 package io.helidon.examples.quickstart.mp.resource;
 
-import jakarta.inject.Inject;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
-import java.time.Instant;
 import java.util.List;
 
-import io.helidon.examples.quickstart.mp.model.ClickAnalytics;
 import io.helidon.examples.quickstart.mp.model.DynamicLink;
-import io.helidon.examples.quickstart.mp.repository.ClickAnalyticsRepository;
 import io.helidon.examples.quickstart.mp.repository.DynamicLinkRepository;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 
 @Path("/links")
 @Produces(MediaType.APPLICATION_JSON)
@@ -18,9 +19,6 @@ public class LinkResource {
 
     @Inject
     private DynamicLinkRepository linkRepo;
-
-    @Inject
-    private ClickAnalyticsRepository analyticsRepo;
 
     @POST
     public DynamicLink createLink(DynamicLink link) {
@@ -31,17 +29,4 @@ public class LinkResource {
     public List<DynamicLink> getLinks() {
         return linkRepo.findAll();
     }
-
-    // @POST
-    // @Path("/{id}/click")
-    // public void logClick(@PathParam("id") Long id, @HeaderParam("User-Agent") String userAgent) {
-    //     ClickAnalytics analytics = new ClickAnalytics(id, Instant.now(), userAgent);
-    //     analyticsRepo.insert(analytics);
-    // }
-
-    // @GET
-    // @Path("/analytics")
-    // public List<ClickAnalytics> getAnalytics() {
-    //     return analyticsRepo.findAll();
-    // }
 }
