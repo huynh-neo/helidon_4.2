@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO">
+<Configuration status="WARN">
     <Appenders>
         <!-- Console Appender -->
         <Console name="Console" target="SYSTEM_OUT">
@@ -18,7 +18,14 @@
     </Appenders>
 
     <Loggers>
-        <Root level="INFO">
+        <!-- Log DEBUG for your package -->
+        <Logger name="io.helidon.examples.quickstart.mp" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+
+        <!-- Root logger logs at INFO level -->
+        <Root level="info">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="FileAppender"/>
         </Root>

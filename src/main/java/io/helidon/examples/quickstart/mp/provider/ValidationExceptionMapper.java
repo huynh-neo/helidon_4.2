@@ -1,4 +1,4 @@
-package io.helidon.examples.quickstart.mp.privider;
+package io.helidon.examples.quickstart.mp.provider;
 
 import java.util.stream.Collectors;
 
