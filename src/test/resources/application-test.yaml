@@ -1,0 +1,27 @@
+mp:
+  config:
+    profile: test
+
+javax:
+  enterprise:
+    inject:
+      alternatives:
+        classes:
+          - io.helidon.examples.quickstart.mp.repository.MockDataSource
+  sql:
+    DataSource:
+      default:
+        dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
+        dataSource:
+          url: ${PG_JDBC_URL}
+          user: ${PG_USER}
+          password: ${PG_PASS}
+        maximumPoolSize: 5
+        minimumIdle: 2
+
+mongo:
+  host: ${MONGO_HOST}
+  port: ${MONGO_PORT}
+  username: ${MONGO_USERNAME}
+  password: ${MONGO_PASSWORD}
+  database: testanalytics
