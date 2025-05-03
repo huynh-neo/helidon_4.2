@@ -20,8 +20,5 @@ javax:
         minimumIdle: 2
 
 mongo:
-  host: ${MONGO_HOST}
-  port: ${MONGO_PORT}
-  username: ${MONGO_USERNAME}
-  password: ${MONGO_PASSWORD}
-  database: testanalytics
+  database: analyticsdb
+  connection-string: ${mongo.connection-string}
