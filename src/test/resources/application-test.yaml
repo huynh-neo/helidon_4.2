@@ -13,10 +13,10 @@ javax:
       default:
         dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
         dataSource:
-          url: ${PG_JDBC_URL}
-          user: ${PG_USER}
-          password: ${PG_PASS}
-        maximumPoolSize: 5
+          url: jdbc:postgresql://localhost:5432/dynamiclinkdb
+          user: appuser
+          password: secret
+        maximumPoolSize: 10
         minimumIdle: 2
 
 mongo:
